@@ -1,0 +1,147 @@
+[
+ {
+  "q": "¿Cómo puedo registrarme?",
+  "a": "1. En la parte superior izquierda de cada página, encontrarás un espacio exclusivo para crear tu cuenta. Haz clic en el icono de usuario y selecciona “Registrarse”.\n2. Serás redirigido a una página con un formulario de registro de la nueva cuenta.\n3. En el formulario rellena todos los datos solicitados y haz clic en “Registrarse” o puedes registrarte a con tu cuenta de Facebook o Google.\n4. Te enviaremos la confirmación del registro a tu correo electrónico (este será enviado a la dirección de correo registrada o a la dirección de correo vinculada a tu cuenta de Facebook o Google).\n5. Puedes continuar tu navegación en la página, acceder a tu cuenta, agregar a la wishlist o realizar un pedido.",
+  "section": "cuenta"
+ },
+ {
+  "q": "¿Cómo puedo recuperar mi contraseña?",
+  "a": "Escribe tu dirección correo electrónico (con la que te registraste) y haz clic en el botón “Restablecer mi contraseña”.\nSe te enviará automáticamente un correo electrónico con un enlace para obtener una nueva contraseña.\nDirígete a tu cuenta de correo y haz clic en el botón “Modificar contraseña” y serás redirigido a una nueva página.\nUna vez en la página, elige una nueva contraseña, confírmala y haz clic en “Establecer nueva contraseña”.\nTu contraseña se modificará y podrás iniciar sesión a la página.\nEl enlace es válido por 3 horas. Una vez vencido este plazo, tendrás que renovar la solicitud.",
+  "section": "cuenta"
+ },
+ {
+  "q": "¿Cómo registro una nueva dirección de entrega?",
+  "a": "Para registrar una nueva dirección de entrega, dirígete a tu cuenta cliente y sigue los siguientes pasos.\n1. Haz clic en la sección “Mis direcciones”.\n2. Una vez en la página haz clic en el botón “Nueva dirección”.\n3. Indica la nueva dirección en el formulario.\n4. Para registrarla, haz clic en “Guardar dirección”.",
+  "section": "cuenta"
+ },
+ {
+  "q": "¿Cómo suscribirse a la newsletter?",
+  "a": "Para recibir información exclusiva acerca de nuestras novedades y promociones, suscríbete a nuestra newsletter.\nPuedes suscribirte en todo momento de las siguientes maneras:\nEn la parte inferior de la página hay un espacio donde podrás dejar tu correo y suscribirte.\nAl registrar tu cuenta donde podrás seleccionar la opción “Suscribirme al newsletter” al momento de rellenar el formulario de registro.\nEn tu cuenta cliente, desde la sección de “Información general” podrás acceder a todas tus suscripciones y administrarlas desde ahí.",
+  "section": "cuenta"
+ },
+ {
+  "q": "¿Cómo puedo darme de baja o modificar mis suscripciones?",
+  "a": "Suscripción al newsletter: Si deseas modificar tu suscripción a nuestra newsletter puedes hacerlo de dos formas diferentes:\nDirígete a la sección \"Información General\" en la Mi Cuenta y una vez ahí busca la pestaña de suscripciones, donde podrás editar la configuración de tus suscripciones.\nEn todos los correos que recibes, tienes la oportunidad de darte de baja o modificar la configuración de tus suscripciones. Solo tiene que hacer clic en la opción de “Darse de Baja” en la parte inferior del correo.",
+  "section": "cuenta"
+ },
+ {
+  "q": "¿Cómo buscar un producto en la web?",
+  "a": "Busca por producto\nPara encontrar el producto que buscas, puedes hacer clic en la lupa e introducir el nombre del producto en el motor de búsqueda.\nBuscar por marcas\nSi no te acuerdas del nombre del producto, pero conoces la marca, puedes introducir el nombre de la marca en el motor de búsqueda o puedes hacer clic en la pestaña \"Marcas\" y selecciona la que estás buscando.\nUna vez que estás en la página de la Marca, puedes afinar tu búsqueda, eligiendo la categoría del producto, ver los más vendidos de la marca, así como las novedades o acceder al catálogo completo de la marca.\nBuscar por la categoría del producto.\nSi no conoces la marca, ni el nombre del producto, haz clic en una de las categorías disponibles en la página de inicio de la web o en el menú.",
+  "section": "productos"
+ },
+ {
+  "q": "¿Cómo saber si un producto está disponible en la web?",
+  "a": "Todos los productos que aparecen con opción a compra están disponibles, teniendo en la página de producto el botón “Añadir al Carrito”. Los productos que no tienen stock momentáneamente solo se pueden agregar a la wishlist.",
+  "section": "productos"
+ },
+ {
+  "q": "¿Cómo puedo consultar o publicar una opinión en la web?",
+  "a": "Puedes consultar las opiniones facilitadas por otros clientes sobre los productos disponibles y publicar tu opinión en la web.\nPara consultar una opinión:\nPuedes ver el rating del producto (estrellas) en la parte superior de la página del producto o dirígete directamente a la sección “Rating y comentarios”, ubicada en la parte inferior de la página de producto.\nEsto te permitirá ver el rating y los comentarios publicados por clientes que compraron el producto.\nPara dejar una opinión:\nPara publicar una opinión sobre un producto disponible en la web, primero tienes que registrarte o tener una cuenta en COSMET e iniciar sesión.\nA continuación, haz clic en el enlace \"Escribir una opinión\" en la sección de ratings y opiniones ubicada en la parte inferior de la página del producto. Puedes dejar un comentario y poner nota al producto de 1 a 5 estrellas. Siendo 1 estrella la nota más baja y 5 estrellas la más alta.\nTu opinión se publicará en las 48 horas posteriores a su validación por nuestro equipo.\nPuedes ver y administrar tus comentarios en la sección “Mis Ratings y Comentarios”",
+  "section": "productos"
+ },
+ {
+  "q": "¿Cómo puedo conseguir muestras?",
+  "a": "Cada vez que compras en nuestra web o en nuestros puntos de venta, te regalamos muestras. Así podrás descubrir también nuestras diferentes gamas de productos y novedades.\nTe recordamos que estas muestras están sujetas a disponibilidad en función de las existencias disponibles.",
+  "section": "productos"
+ },
+ {
+  "q": "¿Cómo puedo acceder y administrar mi wishlist?",
+  "a": "Acceder a tu Wishlist\nPara visualizar tu lista de deseos debes seguir los siguientes pasos:\nIniciar sesión en tu cuenta y haz clic en la sección “Mi Wishlist”\nUna vez en la página podrás visualizar tu listado de deseos con los productos que agregaste, eliminarlos, agregarles un comentario, compartirlos con amigos o agregarlos a tu carrito de compras.\nAgregar productos a la wishlist\nPara agregar productos a tu lista de deseos primero tienes que haber iniciado sesión en tu cuenta. Si ya iniciaste sesión puedes agregar productos a tu lista de deseo de las siguientes formas:\nEn el enlace de compra rápida en el producto: En todas las páginas del sitio, puedes acceder al enlace de compra rápida del producto poniendo el cursor sobre el producto y haciendo clic en el botón “Compra Rápida”. Ahí accederás a un pop-up donde podrás seleccionar el icono de corazón para agregar el producto a la wishlist.\nEn la página de producto: Cuando estés en la página del producto que deseas puedes hacer clic en el botón “Wishlist” en la versión para computadora o en el icono de corazón en la versión para celular, y automáticamente se agregará el producto a tu lista de deseos.\nEn el carrito de compras: Si agregaste productos a tu carrito de compra, puedes acceder a este y agregarlos desde ahí a tu wishlist. Para eso debes hacer clic en el botón añadir a wishlist ubicado debajo la cantidad del producto y automáticamente se agregará el producto a tu lista de deseos.\nAgregar los productos de la wishlist al carrito de compras o compartirla con amigos\nPara administrar tu wishlist primero tienes que haber iniciado sesión en tu cuenta. Si ya iniciaste sesión puedes agregar los productos de esta a tu carrito de compras o compartirla con amigos sigue los siguientes pasos:\nInicia sesión en tu cuenta y dirígete a la sección “Mi Wishlist”\nUna vez en la página podrás ver tu listado de productos favoritos agregados y podrás:\nAgregar productos al carrito de compras: puedes agregar producto por producto al carrito de compras o agregar toda la lista al carrito.\nCompartir: Puedes compartir tu wishlist con tus amigos, haciendo clic en “Compartir favoritos”. Esto te llevara a una pantalla donde puedes indicar las direcciones de correo y poner un mensaje.\nEllos podrán visualizar tu lista de deseos, el mensaje que dejaste, así como acceder directamente a los productos que deseas.",
+  "section": "productos"
+ },
+ {
+  "q": "¿Cómo realizar una compra en la web?",
+  "a": "Para realizar una compra en la web se tienen los siguientes pasos:\nTu carrito de compras\nUna vez que hayas encontrado los productos que necesitas, sólo tienes que seguir los siguientes pasos:\n1. Selecciona el tamaño o color del producto que deseas.\n2. Haz clic en el botón “Agregar al carrito”.\n3. . Una vez agregado el producto, puedes continuar con tu compra o finalizar el pedido.\n4. Haz clic en el icono de la cesta en la parte superior y selecciona el enlace “Ir al carrito”.\n5. Una vez en tu carrito, puedes comprobar los productos que se han añadido. Si fuera necesario, puedes modificar la cantidad, agregarlo a la wishlist o suprimir algún producto.\n6. Si deseas utilizar alguna oferta promocional, introduce el código del que dispongas en el campo previsto. (puedes hacerlo en esta sección o más adelante cuando selecciones el método de pago).\n7. En ese momento conocerás el importe de tu descuento. El importe total de tu pedido se actualizará en el cuadro de resumen de pedido.\n8. En este paso podrás efectuar las comprobaciones y modificaciones necesarias a través del resumen de pedido. Una vez realizada esta verificación, podrás proceder al pago haciendo clic en “Iniciar Pago”.\nLa dirección de entrega\nEn este paso podrás seleccionar la dirección de entrega y el método de envío disponible para tu ciudad. Los pasos a seguir son:\n1. Escribe tu correo electrónico si es que aún no iniciaste sesión o estas comprando como invitado. A este correo llegara la confirmación del pedido y la actualización de los estados.\n2. Selecciona la dirección de envío:\n- Si iniciaste sesión: Puedes seleccionar una dirección registrada o indicar una nueva dirección de entrega seleccionando \" + Nueva dirección\" y rellenar los datos requeridos de la dirección e indicar el punto exacto en el mapa.\n- Si no iniciaste sesión o estas comprando como invitado: Llena el formulario con los datos requeridos de la dirección e indicar el punto exacto en el mapa.\n3. Introduce los datos de facturación “Razón Social” y “NIT”\nUna vez determinada la dirección y los datos de facturación puedes seleccionar el método de envío. (Para más información de los métodos de envío dirigente a la sección D “Métodos de Entrega”).\nEl pago\nEl último paso del pedido, en este paso podrás selecciona el método de pago que prefieras.\n1. Selecciona el método de pago, lee y acepta los Términos y Condiciones y las Políticas de Privacidad.\n2. Una vez seleccionado el método de pago, dependiendo el método seleccionado se sigue el proceso de diferente manera. (Para más información de los métodos de pago dirígete a la sección E “métodos de pago”)\n3. Acá también puedes utilizar alguna oferta promocional introduciendo el código del que dispongas en el campo previsto.\n4. En ese momento conocerás el importe de tu descuento. El importe total de tu pedido se actualizará en el cuadro de resumen de pedido.\nNo es posible combinar métodos de pagos en un mismo pedido online.\nConfirmación del pedido\nUna vez seleccionada la dirección de envío y efectuado el pago selecciona “Realizar Pedido”:\n1. Aparecerá una nueva página con el número de tu pedido.\n2. Te enviaremos la confirmación del pedido al correo electrónico seleccionado en el proceso de pago.\n3. Cuando tu pedido sea confirmado y cuando sea enviado te enviaremos otro correo con esta información y un link donde podrás hacer el seguimiento del pedido.",
+  "section": "pedidos"
+ },
+ {
+  "q": "¿Entregan Factura?",
+  "a": "Para todas las compras se entrega factura al momento de entrega de tu pedido. Al momento de realizar el pedido te solicitaremos los datos de facturación: Razón Social y NIT.",
+  "section": "pago"
+ },
+ {
+  "q": "Deseo modificar/anular un pedido, ¿qué debo hacer?",
+  "a": "Antes de finalizar tu pedido y proceder al pago de éste, encontrarás un resumen de productos seleccionados que te permitirá hacer las comprobaciones y modificaciones necesarias.\nCon el fin de garantizarte los plazos de entrega más breves, una vez finalizado el pago, no podrás anular ni modificar tu pedido.",
+  "section": "pedidos"
+ },
+ {
+  "q": "¿Es necesario tener una cuenta de cliente para realizar un pedido?",
+  "a": "No es necesario tener una cuenta cliente para realizar un pedido, se tiene la opción de realizarla como invitado con el correo electrónico. Pero el tener una cuenta cliente te permite:\nRecibir ofertas exclusivas\nAcceder fácilmente a sus pedidos\nCrear y compartir tus listas de deseos\nComprobar el estado de tus pedidos\nAcceder a los beneficios del programa de fidelidad\nEscribir opiniones de productos\nRecibir notificación cuando tus favoritos vuelvan a estar disponibles\nAlmacenar direcciones alternativas\nActualizar tu información de contacto",
+  "section": "pedidos"
+ },
+ {
+  "q": "¿Cómo puedo agregar un código de descuento u oferta?",
+  "a": "Durante la realización del pedido hay dos momentos en los que puedes agregar un código de oferta o descuento. Estos son:\nEn tu carrito de compras: Debajo del resumen de tu pedido podrás encontrar un campo provisto para esto.\nEn el pago: Cuando selecciones el método de pago y antes de confirmar el pago podrías encontrar un campo provisto para esto. Es importante que llenes este campo antes de confirmar el pago, puesto que el monto del pago será modificado con el descuento, después de confirmar el pago ya no se podrá acceder a un descuento.",
+  "section": "pedidos"
+ },
+ {
+  "q": "¿Cuáles son los métodos de entrega disponibles?",
+  "a": "Nuestro servicio de entrega a domicilio te permite hacer el pedido y recibirlo en la dirección que solicites. Para este método de entrega se tienen dos empresas de envío dependiendo de la dirección de entrega.\nLas entregas a domicilio no se cobran al cliente cuando el monto de su compra sea igual o superior a $50 a para ciudades capitales, estas entregas se realizan en días y horarios laborales (lunes a viernes de 08:30 a 19:00 y sábado de 08:30 a 12:30), por lo que quedan excluidos los sábados en la tarde, domingos y días festivos y feriados.\nLos pedidos realizados fuera de este horario se prepararán y se entregarán al día hábil siguiente\nLas entregas a domicilio se cobrarán al comprador cuando el monto de su compra sea menor a los $50 para la ciudad de Santa Cruz, de la siguiente manera: Bs.15 dentro del 4to anillo y Bs. 30 fuera del 4to anillo. Para otras ciudades capitales, de la siguiente manera: La Paz Bs.25 - Cochabamba Bs.25 - Sucre Bs.25 - Tarija Bs.25 - Potosí Bs.25 - Oruro Bs.25 - Trinidad Bs.25- Cobija Bs.25. Otras ciudades y/o provincias Bs.50. El recargo se incluirá en los datos de la factura y este será comunicado al comprador al momento de confirmarle la recepción del pedido, estas entregas se realizan en días y horarios laborales, por lo que quedan excluidos los sábados en la tarde, domingos y días festivos y feriados. Los pedidos realizados fuera de este horario se prepararán y se entregarán al día hábil siguiente.\nLas opciones de entrega a domicilio son:\n1. Delivery en Santa Cruz\nSe tiene esta opción para entrega de pedidos dentro la ciudad de Santa Cruz (dentro del 9no anillo), donde la entrega se realiza en un aproximado de 5 horas y maximo de 24 horas de realizado el pedido, exceptuando fines de semana.\n2. Delivery a otras ciudades capitales\nSe tiene esta opción para entrega de pedidos a las demás ciudades capitales (La Paz, Cochabamba, Sucre, Tarija, Oruro, Potosí, Trinidad y Cobija).  Los tiempos de envío en condiciones normales, varían en relación a la ciudad de destino y circunstancias, así como el día (si es hábil o no).\nCiudad\nDias Hábiles\nLa Paz\n1 a 2\nCochabamba\n1 a 2\nOruro\n2 a 3\nSucre\n2 a 3\nPotosí\n2 a 3\nTarija\n2 a 3\nTrinidad\n2 a 3\nCobija\n2 a 3\nLos tiempos pueden variar en relación al contenido del pedido, puesto que algunos productos no pueden ser transportados por vía aérea y esto incrementa un día más en el tiempo de entrega.\nLos horarios de Recojo de Tienda son de: Lunes a Viernes de 9 am a 7 pm & Sabados de 9 am a 1 pm",
+  "section": "entrega"
+ },
+ {
+  "q": "¿Cuáles son los métodos de pago disponibles?",
+  "a": "Los métodos disponibles para el pago del pedido son:\nTarjeta de Crédito o Débito\nTransferencia o Depósito Bancario\nPago contra entrega (Solo para entregas a domicilio en las ciudades de Santa Cruz, La Paz y Cochabamba).\nNo es posible combinar métodos de pagos en un mismo pedido online. Sin importar el método de pago seleccionado la factura se entrega junto con la entrega del pedido.",
+  "section": "pago"
+ },
+ {
+  "q": "Tarjetas de Crédito y Débito",
+  "a": "Se puede realizar el pago de manera segura con tarjetas de débito y crédito de las marcas Visa y MasterCard habilitadas para compras en internet.\nLos pagos se realizan de manera segura a través de la plataforma de pagos PayMe de la Red Enlace operada por Khipu, que se encuentra certificada por los programas de seguridad: Veryfied by VISA y MASTERCARD secure code y cumple todos los estándares de seguridad PCI DSS. Esta plataforma es externa a la tienda online COSMET.\n¿Cómo habilito mi tarjeta de débito para compras online?\nPara el pago con tarjetas, antes de realizar el pago se tiene que habilitar la tarjeta para compras online, si no el pago es denegado. Para eso se tiene que comunicar con el número de atención al cliente de su banco y pedir la habilitación indicando el tiempo y el monto deseado.\n¿Cómo realizo el pago con mi tarjeta de débito o crédito?\nAl momento del pago selecciona el método de pago “Tarjeta de Crédito o Débito” y en unos minutos te llevaremos a la pasarela de pago PayMe (Khipu), una vez ahí sigue los siguientes pasos:\nHabilita tu tarjeta para pagos online llamando al número de atención al cliente de tu banco.\nIngresa tu correo electrónico (al que te llegara el comprobante de pago) en el campo indicado y presiona el botón “Continuar”\nLlena los datos de tu tarjeta: número de tarjeta, fecha de vencimiento, código de seguridad CVV y el nombre del titular.\nAcepta los Términos y condiciones y realiza el pago.\nSelecciona el botón “Pagar USD”\nSerás redirigido a una ventana de autentificación del tarjetahabiente, en la que se verificará la transacción y será completada.\nSerás redirigido a una pantalla de confirmación dentro de www.cosmet.com.bo y también se enviará un correo con la confirmación de pago del pedido.",
+  "section": "pago"
+ },
+ {
+  "q": "Transferencia o Depósito bancario",
+  "a": "Puedes realizar el pago de tu pedido mediante deposito o transferencia bancaria a las siguientes cuentas:\nCuenta en Bolivianos:\nTipo de moneda: Bolivianos\nCuenta Corriente\nNombre de la entidad bancaria: Banco Mercantil Santa Cruz S.A\nTitular de la cuenta: IMPORTACIONES Y TIENDAS T.A.J.J. SRL\nNIT: 298434022\nNúmero de la cuenta: 4010999472\nCuenta en Dólares:\nTipo de moneda: Dólares\nCuenta Corriente\nNombre de la entidad bancaria: Banco Mercantil Santa Cruz S.A\nTitular de la cuenta: IMPORTACIONES Y TIENDAS T.A.J.J. SRL\nNIT: 298434022\nNúmero de la cuenta: 4010999463\nAsegúrate de que tu Número de Pedido y nombre esté incluido en la glosa del depósito o transferencia.\nUna vez realizado el pago es necesario que nos envío el comprobante del banco al correo electrónico pagos.online@cosmet.com.bo al WhatsApp 650-67663.\nSolo hasta que confirmemos que se realizó el depósito o transferencia, se procederá con él envió del pedido. El pago se debe realizar dentro de las 24 horas hábiles siguientes a tu compra o el pedido será cancelado y deberás realizar la compra nuevamente.",
+  "section": "pago"
+ },
+ {
+  "q": "Pago contra entrega",
+  "a": "Este método de pago está activo para las entregas a domicilio en las ciudades de Santa Cruz, La Paz y Cochabamba.\nPermite realizar el pago de tu pedido cuando la empresa de envío te entregue el pedido y podrás pagar en efectivo o con tarjeta de crédito o débito que se realiza mediante datafono portátil, pero no es posible hacer un pago mixto entre efectivo y tarjeta.\nCuando se seleccione este método de pago, debes indicar si pagaras con tarjeta o con cuanto efectivo, para que la empresa de envió pueda ir con el datafono o con el cambio necesario.",
+  "section": "pago"
+ },
+ {
+  "q": "¿Cómo puedo saber el estado de mi pedido?",
+  "a": "En todo momento puedes ver el estado de tu pedido en la sección “Mis Pedidos” donde podrás ver un listado con todos tus pedidos y el estado de estos.\nPara poder acceder a esta sección debes estar registrado como cliente y puedes ingresar accediendo al pedido en la sección “Mis Pedidos” en tu cuenta cliente en la parte superior de cada página o haciendo clic en el botón “Estado del pedido” incluido en el correo de confirmación del pedido.\nUna vez en el pedido podrás ver el estado del pedido y también acceder al seguimiento del envío.",
+  "section": "pedidos"
+ },
+ {
+  "q": "¿Cómo puedo hacer el seguimiento del envío?",
+  "a": "Además de poder ver el estado de tu pedido, puedes hacer seguimiento del envío desde que la empresa de envío recolecte tu pedido de COSMET hasta su entrega en la dirección de destino.\nCuando la empresa de envío recolecte tu pedido, te enviaremos un correo con la confirmación del envío y desde ese momento podrás acceder al seguimiento, haciendo clic en el botón “Seguimiento del pedido” que te redirigirá a una página donde podrás ver los pasos por los que va pasando tu pedido desde su salida de COSMET hasta su entrega en la dirección de destino.\nPara los envíos en Santa Cruz, además de poder ver los pasos de tu pedido, podrás ver en tiempo real en el mapa de la ciudad, el recorrido del envío desde COSMET hasta la dirección de entrega.\nAdemás, si estas registrado podrás acceder al seguimiento desde la página de cliente, entrando al pedido desde la sección “Mis Pedidos” y haciendo clic en el botón “Estado del Pedido”.",
+  "section": "entrega"
+ },
+ {
+  "q": "No he recibido mi pedido, ¿qué puedo hacer?",
+  "a": "En caso de que la empresa de envío no pueda entregar el pedido porque no encontró la dirección u otro motivo, te llegara un correo informativo sobre la reprogramación y nos pondremos en contacto por teléfono para poder ofrecerte un nuevo intento de entrega.\nSi  no recibiste este correo o tu espera es superior al tiempo de envío anunciado en la sección “D”, ponte en contacto con el Servicio de Atención al Cliente de COSMET al correo atencion.cliente@cosmet.com.bo o al WhatsApp 650-67663.\nNuestro servicio de atención al cliente funciona de lunes a viernes de 8:30 a 19:00 y los sábados de 8:30 a 12:30 con excepción de días festivos y feriados.\nTe recordamos que las entregas se efectúan en días laborables. Quedan excluidos los sábados en la tarde, domingos, días festivos y feriados del plazo de entrega.",
+  "section": "entrega"
+ },
+ {
+  "q": "¿En qué caso son aceptados los cambios y devoluciones?",
+  "a": "Los cambios y devoluciones son aceptadas en caso de entrega de productos dañados, en malas condiciones o de productos que no correspondan al pedido, en caso de así recibirlos.",
+  "section": "cambios"
+ },
+ {
+  "q": "¿Cuál es el plazo y el procedimiento para efectuar el reclamo?",
+  "a": "El plazo para efectuar reclamos sobre un pedido para el cambio o devolución es de 2 días hábiles a contar desde la entrega del pedido.\nEste pasara por un proceso de consideración sobre si se realizara el cambio o devolución en relación a si el pedido cumple con las características previamente mencionadas y las políticas de devoluciones internas de COSMET.\nPara poder ser tomado en consideración para el cambio o devolución, el producto debe encontrarse en su estado original, dentro de su embalaje, acompañado de todos sus accesorios y su factura, ningún cambio o devolución se puede realizar sin la factura.\nEl reclamo se debe hacer al servicio de atención al Cliente de COSMET al correo atencion.cliente@cosmet.com.bo o al WhatsApp 65067663, el personal a cargo se pondrá en contacto por correo o teléfono para indicarte los pasos a seguir.\nTe recordamos que es importante que el correo o mensaje tenga su nombre y número de pedido, además que nuestro servicio de atención al cliente funciona de lunes a viernes de 8:30 a 19:00 y los sábados de 8:30 a 12:30, con excepción de días festivos y feriados.",
+  "section": "cambios"
+ },
+ {
+  "q": "Quiero hacer el cambio y/o devolución de un regalo que recibí, ¿Qué puedo hacer?",
+  "a": "Actualmente COSMET no ofrece el servicio de cambios y/o devoluciones de pedidos a personas que los han recibido como un regalo. Para poder ser tomado en consideración para el cambio o devolución el pedido recibido debe estar necesariamente acompañado de la factura y este en la dirección en la que se realizó la entrega, por lo que recomendamos que la persona que realizo la compra pueda solicitar el reclamo o te pueda proporcionar la factura.",
+  "section": "cambios"
+ },
+ {
+  "q": "¿Cómo puedo contactarme con atención al cliente?",
+  "a": "Para cualquier duda, incidente, información adicional, consulta relacionada con los pedidos, el estado de un pedido en cualquier momento puedes ponerte en contacto con nuestro personal de atención al cliente al correo atencion.cliente@cosmet.com.bo  o al WhatsApp 65067663 y serás atendido lo antes posible.",
+  "section": "atencion"
+ },
+ {
+  "q": "¿Cuál es el horario de atención al cliente?",
+  "a": "Nuestro servicio de atención al cliente funciona de lunes a viernes de 8:30 a 19:00 y los sábados de 8:30 a 12:30, con excepción de días festivos y feriados.\nTodos los correos o mensajes recibidos fuera de ese horario, serán respondidos en las primeras horas hábiles.",
+  "section": "atencion"
+ },
+ {
+  "q": "Pago en Cuotas",
+  "a": "Cosmet ofrece el pago de sus productos hasta en 6 Cuotas. El cliente escoge el numero de cuotas el cual se le cobrara.\nLas tarjetas de credito autorizadas para gozar de este beneficio son:\nBanco Economico\nBanco Ganadero\nBanco Bisa\nBanco Union\nBanco Fassil\nBanco Mercantil Santa Cruz\nBanco Nacional de Bolivia\nBanco de Credito\nCualquier duda o consulta contactarse a los numero 60095005 o al 65067663",
+  "section": "cuotas"
+ }
+]

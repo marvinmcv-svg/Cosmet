@@ -4,7 +4,7 @@ import { ALL_CATEGORIES } from "@/lib/taxonomy";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cosmet.vercel.app";
-  const fixed = ["", "/tienda", "/marcas", "/tiendas", "/nosotros", "/servicios", "/ayuda"].map((p) => ({ url: base + p }));
+  const fixed = ["", "/tienda", "/marcas", "/tiendas", "/nosotros", "/servicios", "/ayuda", "/trending", "/terminos-y-condiciones", "/politicas-de-privacidad", "/trabaja-con-nosotros"].map((p) => ({ url: base + p }));
   return [
     ...fixed,
     ...Object.keys(ALL_CATEGORIES).map((c) => ({ url: `${base}/tienda/${c}` })),

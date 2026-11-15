@@ -4,6 +4,7 @@ import { search, summary, getProduct } from "@/lib/catalog";
 import { knowledgeBase, FAQ } from "@/lib/knowledge";
 import { norm } from "@/lib/catalog";
 import { STORES, CONTACT } from "@/lib/info";
+import { FACETS } from "@/lib/facets";
 import type { ProductSummary } from "@/lib/types";
 
 export const maxDuration = 60;
@@ -40,8 +41,20 @@ const TOOLS: Anthropic.Beta.BetaTool[] = [
         },
         max_price: { type: ["number", "null"], description: "Precio máximo en USD" },
         on_sale: { type: ["boolean", "null"], description: "Solo productos con descuento" },
+        para: { type: ["string", "null"], enum: ["ella", "el", "unisex", "ninos", null], description: "Público" },
+        familia: {
+          type: ["string", "null"],
+          enum: ["florales", "amaderados", "citricos-frutales", "calidos-especiados", "frescos", "ambar", null],
+          description: "Familia olfativa (fragancias)",
+        },
+        piel: { type: ["string", "null"], enum: ["normal", "mixta", "seca", "grasa", "madura", "sensible", null], description: "Tipo de piel (tratamiento)" },
+        necesidad: {
+          type: ["string", "null"],
+          enum: ["hidratacion", "antiarrugas", "reafirmante", "luminosidad", "prevencion-edad", "nutricion", "uniformidad", "antimanchas", "poros", "control-brillo", "reparacion", "suavidad", null],
+          description: "Necesidad de la piel (tratamiento)",
+        },
       },
-      required: ["query", "category", "max_price", "on_sale"],
+      required: ["query", "category", "max_price", "on_sale", "para", "familia", "piel", "necesidad"],
     },
   },
   {
@@ -64,6 +77,7 @@ function runTool(name: string, input: Record<string, unknown>, found: Map<string
       cat: (input.category as string) || undefined,
       max: typeof input.max_price === "number" ? input.max_price : undefined,
       sale: input.on_sale === true || undefined,
+      facets: Object.fromEntries(["para", "familia", "piel", "necesidad"].filter((k) => typeof input[k] === "string").map((k) => [k, input[k] as string])),
     }).slice(0, 8);
     res.forEach((p) => found.set(p.slug, summary(p)));
     if (!res.length) return "Sin resultados. Prueba con otras palabras clave o sin filtros.";
@@ -156,7 +170,7 @@ function localReply(history: ChatMessage[]) {
   const stop = new Set(["quiero", "busco", "un", "una", "para", "de", "el", "la", "los", "las", "me", "recomiendas", "recomienda", "algo", "tienen", "hay", "que", "mi", "regalo", "por", "favor", "con", "y", "o", "en"]);
   const terms = t.split(/[^a-z0-9]+/).filter((w) => w && !stop.has(w));
   const max = Number(t.match(/(?:menos de|hasta|maximo|max)\s*\$?\s*(\d+)/)?.[1]) || undefined;
-  const cat = has("hombre", "masculin", "el ") && has("perfum", "fragan", "colonia")
+  const cat = has("hombre", "masculin", "para el") && has("perfum", "fragan", "colonia")
     ? "fragancias-masculinas"
     : has("mujer", "femenin", "ella") && has("perfum", "fragan")
       ? "fragancias-femeninas"
@@ -165,8 +179,13 @@ function localReply(history: ChatMessage[]) {
         : has("regalo")
           ? "regalos"
           : undefined;
+  const facets: Record<string, string> = {};
+  for (const f of FACETS) for (const v of f.values) if (v.slug.length > 3 && t.includes(v.slug.split("-")[0].slice(0, -1))) facets[f.key] ??= v.slug;
+  if (has("para el", "hombre", "masculin")) facets.para = "el";
+  if (has("para ella", "mujer", "femenin")) facets.para = "ella";
   const q = terms.filter((w) => !/^(perfume|perfumes|fragancia|fragancias|hombre|mujer|menos|hasta|maximo|dolares|usd|\d+)$/.test(w)).join(" ");
-  let res = search({ q, cat, max });
+  const fq = Object.keys(facets).length ? facets : undefined;
+  let res = fq ? search({ cat, max, facets: fq }) : search({ q, cat, max });
   if (!res.length && q) res = search({ q: terms[0], cat, max });
   if (!res.length) res = search({ cat, max });
   const products = res.slice(0, 6).map(summary);

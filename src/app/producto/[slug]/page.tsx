@@ -4,7 +4,8 @@ import Link from "next/link";
 import ProductDetail from "@/components/ProductDetail";
 import ProductCard from "@/components/ProductCard";
 import { Reveal } from "@/components/Motion";
-import { getProduct, related } from "@/lib/catalog";
+import { getProduct, related, FACET_INDEX } from "@/lib/catalog";
+import { FACETS, facetLabel } from "@/lib/facets";
 import { ALL_CATEGORIES } from "@/lib/taxonomy";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -25,6 +26,11 @@ export default async function ProductPage({ params }: Props) {
   const p = getProduct(slug);
   if (!p) notFound();
   const rel = related(p);
+  const group = ["fragancias", "maquillaje", "tratamiento", "regalos", "lifestyle"].find((g) => p.cats.includes(g)) ?? "";
+  const fv = FACET_INDEX.get(p.slug) ?? {};
+  const chips = FACETS.flatMap((f) =>
+    (fv[f.key] ?? []).map((v) => ({ group: f.label, label: facetLabel(f.key, v), href: `/tienda${group ? `/${group}` : ""}?${f.key}=${v}` }))
+  );
   const crumbs = p.cats.filter((c) => ALL_CATEGORIES[c]).reverse().slice(0, 2);
 
   const jsonLd = {
@@ -52,7 +58,7 @@ export default async function ProductPage({ params }: Props) {
           </span>
         ))}
       </nav>
-      <ProductDetail p={p} />
+      <ProductDetail p={p} chips={chips} />
       {rel.length > 0 && (
         <section className="mx-auto mt-28 max-w-[1400px] px-6">
           <h2 className="display text-4xl md:text-5xl">

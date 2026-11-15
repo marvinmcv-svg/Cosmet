@@ -27,7 +27,7 @@ for i,p in enumerate(L['all']):
     tags=[t for t in d.get('tags',[]) if not t.startswith('/')]
     is_new=any('Novedad' in t or 'nuevo' in t.lower() for t in tags) or i<60
     name=p['name']
-    if 'RESE' in name: continue
+    if name.startswith('(') and 'RESE' in name: continue
     gallery=d.get('gallery') or [p['img']]
     option=None
     cfg=d.get('config')

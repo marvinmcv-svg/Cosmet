@@ -9,17 +9,20 @@ Rediseño de [cosmet.com.bo](https://www.cosmet.com.bo) como sitio + e‑commerc
 - Anthropic SDK — Concierge Cosmet (Claude Opus 5.5 con herramientas de búsqueda en el catálogo)
 
 ## Contenido (100 % real, nada generado)
-- `src/data/products.json` — 2.907 productos extraídos de cosmet.com.bo: nombre, marca, precio, descuentos, descripción oficial, tamaños/tonos con precios, galería de imágenes y categorías.
+- `src/data/products.json` — 2.914 productos (el catálogo completo) extraídos de cosmet.com.bo: nombre, marca, precio, descuentos, descripción oficial, tamaños/tonos con precios, galería de imágenes y categorías.
 - `src/data/faq.json` — preguntas frecuentes de /ayuda (envíos, pagos, cuotas, devoluciones…).
 - `src/lib/info.ts` — historia (/sobre-nosotros), tiendas y horarios (/store-locator), servicios de belleza y publicaciones recientes de @cosmet_oficial.
+- `src/data/brands.json` — historia y banners de 20 boutiques de marca.
+- `src/data/legal.json` — Términos y condiciones, Política de privacidad y Trabaja con nosotros (texto oficial).
+- `src/data/trending.json` — artículo editorial de /trending.
 - `public/media` — banners de campaña y logos de marcas publicados en cosmet.com.bo.
 
-Actualizar el catálogo:
+Actualizar el catálogo (precios, productos nuevos, variantes) — un solo comando:
 ```bash
-python3 scripts/catalog/listings.py /tmp/raw/listings2.json
-python3 scripts/catalog/details.py /tmp/raw/listings2.json /tmp/raw/details.json
-python3 scripts/catalog/build_data.py /tmp/raw src/data   # requiere también home.html y pages/ayuda.txt en /tmp/raw
+bash scripts/catalog/sync.sh
+git add src/data && git commit -m "Sync catálogo" && git push   # Vercel redeploya automáticamente
 ```
+Para automatizarlo a diario se puede agregar un GitHub Action programado que ejecute el mismo script.
 
 ## Variables de entorno
 | Variable | Uso |

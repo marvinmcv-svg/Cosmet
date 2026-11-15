@@ -140,6 +140,20 @@ export default function Checkout() {
             </div>
             <textarea name="notes" rows={3} placeholder="Notas para tu pedido (opcional)" className={field} />
           </fieldset>
+          <label className="flex items-start gap-3 text-[14px] text-smoke">
+            <input type="checkbox" required className="mt-1 h-4 w-4 accent-black" />
+            <span>
+              He leído y acepto los{" "}
+              <Link href="/terminos-y-condiciones" target="_blank" className="text-ink underline">
+                Términos y condiciones
+              </Link>{" "}
+              y la{" "}
+              <Link href="/politicas-de-privacidad" target="_blank" className="text-ink underline">
+                Política de privacidad
+              </Link>
+              .
+            </span>
+          </label>
           <button className="btn btn-dark w-full py-4 text-[15px]">Confirmar pedido por WhatsApp</button>
           <p className="text-center text-[13px] text-smoke">
             Al confirmar, se abrirá WhatsApp con el detalle de tu pedido para que nuestro equipo lo procese. La factura se entrega junto con tu pedido.

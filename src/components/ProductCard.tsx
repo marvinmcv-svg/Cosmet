@@ -4,6 +4,7 @@ import Tilt from "./Tilt";
 import { money, discount } from "@/lib/format";
 import type { ProductSummary } from "@/lib/types";
 import { useCart } from "@/lib/cart";
+import HeartButton from "./HeartButton";
 
 export default function ProductCard({ p, priority = false, tone = "mist" }: { p: ProductSummary; priority?: boolean; tone?: "mist" | "white" }) {
   const add = useCart((s) => s.add);
@@ -25,6 +26,7 @@ export default function ProductCard({ p, priority = false, tone = "mist" }: { p:
           {off > 0 && <span className="rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold text-white">−{off}%</span>}
           {p.isNew && <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-ink shadow-sm">Nuevo</span>}
         </div>
+        <HeartButton p={p} className="absolute right-4 top-4 h-9 w-9 bg-white/80 text-ink backdrop-blur hover:bg-white" />
         <button
           onClick={() => add({ slug: p.slug, name: p.name, brand: p.brand, img: p.img, price: p.price })}
           className="absolute bottom-4 right-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full bg-ink text-white opacity-0 shadow-lg transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:translate-y-0 group-hover:opacity-100 focus:opacity-100 max-md:opacity-100 max-md:translate-y-0"

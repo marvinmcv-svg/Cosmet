@@ -61,7 +61,10 @@ export const SHIPPING = {
   others: "Bs. 50 a otras ciudades y provincias",
 };
 
-// Latest Instagram posts (@cosmet_oficial) — captions as published.
+// Latest Instagram posts by @cosmet_oficial (rendered with Instagram's official embed).
+export const INSTAGRAM_CODES = ["DftCWNOPUyt", "DfszrfOPHuu", "DfsWqXWvS97", "DfqjDi0G3ge", "DfnV7e9PJ0U", "DfnhONVv4tB", "DfdrvNBDU9C", "DfclCbQm-vl"];
+
+// Captions as published.
 export const INSTAGRAM_POSTS = [
   { url: "https://instagram.com/p/DftCWNOPUyt", date: "2026-11-14", text: "New York Chic. Para ella. Para él. Cuando cae la noche, Nueva York se convierte en toda una declaración de estilo." },
   { url: "https://instagram.com/p/DfszrfOPHuu", date: "2026-11-13", text: "Carácter. Glamour. Grandeza. Un gourmand con actitud: davana, hoja de tabaco, coñac y una estela de oud cautivador." },

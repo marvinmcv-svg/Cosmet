@@ -2,9 +2,11 @@ import productsJson from "@/data/products.json";
 import homeJson from "@/data/home.json";
 import type { Product, ProductSummary, Brand } from "./types";
 import { ALL_CATEGORIES } from "./taxonomy";
+import { facetValues, FACETS } from "./facets";
 
 const PRODUCTS = productsJson as unknown as Product[];
 const BY_SLUG = new Map(PRODUCTS.map((p) => [p.slug, p]));
+export const FACET_INDEX = new Map(PRODUCTS.map((p) => [p.slug, facetValues(p)]));
 
 export const norm = (s: string) =>
   s
@@ -55,6 +57,8 @@ export type Query = {
   min?: number;
   max?: number;
   sort?: "relevancia" | "precio-asc" | "precio-desc" | "nuevo" | "nombre";
+  /** facet key -> required value slug */
+  facets?: Record<string, string>;
 };
 
 function score(p: Product, terms: string[]) {
@@ -80,6 +84,10 @@ export function search(query: Query) {
     if (query.sale && !p.old) continue;
     if (query.min != null && p.price < query.min) continue;
     if (query.max != null && p.price > query.max) continue;
+    if (query.facets) {
+      const fv = FACET_INDEX.get(p.slug)!;
+      if (Object.entries(query.facets).some(([k, v]) => !fv[k]?.includes(v))) continue;
+    }
     const s = terms.length ? score(p, terms) : 1;
     if (s > 0) list.push({ p, s });
   }
@@ -105,4 +113,13 @@ export function homeSection(key: keyof typeof homeJson) {
 
 export function pick(slugs: string[]) {
   return slugs.map((s) => BY_SLUG.get(s)).filter(Boolean).map((p) => summary(p!));
+}
+
+/** Count facet values across a product list (for filter sidebars). */
+export function facetCounts(list: Product[]) {
+  return FACETS.map((f) => {
+    const counts = new Map<string, number>();
+    for (const p of list) for (const v of FACET_INDEX.get(p.slug)?.[f.key] ?? []) counts.set(v, (counts.get(v) ?? 0) + 1);
+    return { ...f, values: f.values.map((v) => ({ ...v, n: counts.get(v.slug) ?? 0 })).filter((v) => v.n > 0) };
+  }).filter((f) => f.values.length > 0);
 }

@@ -15,7 +15,7 @@ type Menu = { label: string; href: string; group?: string; cols?: { title: strin
 const FEATURED_BRANDS = ["Chanel", "Dior", "Guerlain", "Lancôme", "Sisley", "Creed", "Xerjoff", "MAC", "Estée Lauder", "Clive Christian"];
 
 const MENUS: Menu[] = [
-  ...GROUPS.filter((g) => g.slug !== "lifestyle").map<Menu>((g) => ({
+  ...GROUPS.map<Menu>((g) => ({
     label: g.name,
     href: `/tienda/${g.slug}`,
     group: g.slug,
@@ -23,6 +23,14 @@ const MENUS: Menu[] = [
       {
         title: `Explorar ${g.name}`,
         links: [{ label: `Todo ${g.name}`, href: `/tienda/${g.slug}` }, ...g.children.map((c) => ({ label: c.name, href: `/tienda/${c.slug}` }))],
+      },
+      {
+        title: "Para",
+        links: [
+          { label: "Ella", href: `/tienda/${g.slug}?para=ella` },
+          { label: "Él", href: `/tienda/${g.slug}?para=el` },
+          ...(g.slug === "fragancias" ? [{ label: "Unisex", href: "/tienda/fragancias?para=unisex" }, { label: "Niños", href: "/tienda/fragancias?para=ninos" }] : []),
+        ],
       },
       {
         title: "Descubrir",
@@ -45,7 +53,7 @@ const MENUS: Menu[] = [
           href: `/marcas/${b.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
         })),
       },
-      { title: "Directorio", links: [{ label: "Todas las marcas A–Z", href: "/marcas" }] },
+      { title: "Directorio", links: [{ label: "Todas las marcas A–Z", href: "/marcas" }, { label: "Trending", href: "/trending" }] },
     ],
   },
   { label: "Ofertas", href: "/tienda?ofertas=1" },
@@ -156,7 +164,7 @@ export default function Header() {
             <Link href="/" className="shrink-0 opacity-95 hover:opacity-100" aria-label="Cosmet inicio">
               <Logo />
             </Link>
-            <ul className="hidden lg:flex items-center gap-7">
+            <ul className="hidden lg:flex items-center gap-6">
               {MENUS.map((m, i) => (
                 <li key={m.label} onMouseEnter={() => setActive(m.cols ? i : null)}>
                   <Link
@@ -175,6 +183,11 @@ export default function Header() {
                   <path d="m20 20-3.5-3.5" />
                 </svg>
               </button>
+              <Link href="/favoritos" aria-label="Favoritos" className="relative p-1 opacity-80 hover:opacity-100 max-sm:hidden">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                  <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" />
+                </svg>
+              </Link>
               <button onClick={() => setOpen(true)} aria-label="Bolsa de compras" className="relative opacity-80 hover:opacity-100 p-1">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <path d="M5 8h14l-1 13H6L5 8Z" />
@@ -201,7 +214,7 @@ export default function Header() {
             }`}
           >
             {menu?.cols && (
-              <div key={menu.label} className="mx-auto grid max-w-[1100px] grid-cols-[1.4fr_1fr_1fr] gap-10 px-5 pb-12 pt-8">
+              <div key={menu.label} className="mx-auto grid max-w-[1100px] grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 px-5 pb-12 pt-8">
                 {menu.cols.map((c, ci) => (
                   <div key={c.title}>
                     <p className="mb-4 text-xs text-smoke">{c.title}</p>
@@ -234,7 +247,7 @@ export default function Header() {
         }`}
       >
         <ul className="space-y-3">
-          {[...MENUS, { label: "Nosotros", href: "/nosotros" }, { label: "Ayuda", href: "/ayuda" }].map((m, i) => (
+          {[...MENUS, { label: "Trending", href: "/trending" }, { label: "Favoritos", href: "/favoritos" }, { label: "Nosotros", href: "/nosotros" }, { label: "Ayuda", href: "/ayuda" }].map((m, i) => (
             <li key={m.label} style={{ transitionDelay: `${i * 40}ms` }}>
               <Link href={m.href} className="text-3xl font-semibold tracking-tight">
                 {m.label}

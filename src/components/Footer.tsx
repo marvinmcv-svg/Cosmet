@@ -23,6 +23,8 @@ const COLS = [
       ["Métodos de pago", "/ayuda#pago"],
       ["Cambios y devoluciones", "/ayuda#cambios"],
       ["Pago en cuotas", "/ayuda#cuotas"],
+      ["Términos y condiciones", "/terminos-y-condiciones"],
+      ["Política de privacidad", "/politicas-de-privacidad"],
     ],
   },
   {
@@ -30,6 +32,8 @@ const COLS = [
     links: [
       ["Sobre nosotros", "/nosotros"],
       ["Servicios de belleza", "/servicios"],
+      ["Trending", "/trending"],
+      ["Trabaja con nosotros", "/trabaja-con-nosotros"],
       ["Nuestras tiendas", "/tiendas"],
       ["Instagram", "https://www.instagram.com/cosmet_oficial/"],
       ["WhatsApp", `https://wa.me/${WHATSAPP}`],

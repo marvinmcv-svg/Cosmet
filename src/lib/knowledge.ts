@@ -1,4 +1,5 @@
 import faqJson from "@/data/faq.json";
+import legalJson from "@/data/legal.json";
 import { ABOUT, STORES, SERVICES, CONTACT, SHIPPING } from "./info";
 import { GROUPS } from "./taxonomy";
 import { getBrands } from "./catalog";
@@ -41,5 +42,8 @@ ${brands}
 
 ## Preguntas frecuentes
 ${FAQ.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
+
+## Términos y condiciones (texto oficial)
+${legalJson.terminos.blocks.map((b: { h?: string; p?: string }) => (b.h ? `### ${b.h}` : b.p)).join("\n")}
 `;
 }

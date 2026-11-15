@@ -6,8 +6,9 @@ import { useCart } from "@/lib/cart";
 import { money, discount } from "@/lib/format";
 import { WHATSAPP, FREE_SHIPPING_FROM } from "@/lib/taxonomy";
 import type { Product } from "@/lib/types";
+import HeartButton from "./HeartButton";
 
-export default function ProductDetail({ p }: { p: Product }) {
+export default function ProductDetail({ p, chips = [] }: { p: Product; chips?: { group: string; label: string; href: string }[] }) {
   const add = useCart((s) => s.add);
   const firstAvail = p.option?.values.find((v) => v.available) ?? p.option?.values[0];
   const [variantId, setVariantId] = useState(firstAvail?.id);
@@ -99,6 +100,16 @@ export default function ProductDetail({ p }: { p: Product }) {
           </p>
           <p className="pd-in mt-1 text-[13px] text-smoke">o hasta 6 cuotas con tarjetas de crédito participantes</p>
 
+          {chips.length > 0 && (
+            <div className="pd-in mt-6 flex flex-wrap gap-2">
+              {chips.map((c) => (
+                <Link key={c.href} href={c.href} title={c.group} className="rounded-full border border-black/10 px-3 py-1 text-[12.5px] text-smoke transition hover:border-ink hover:text-ink">
+                  {c.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
           {p.option && (
             <div className="pd-in mt-8">
               <p className="mb-3 text-[14px]">
@@ -135,6 +146,7 @@ export default function ProductDetail({ p }: { p: Product }) {
             <button onClick={addToBag} disabled={!available} className="btn btn-dark flex-1 py-4 text-[15px] disabled:opacity-40">
               {available ? "Añadir a la bolsa" : "Agotado"}
             </button>
+            <HeartButton p={p} className="h-[54px] w-[54px] shrink-0 border border-black/10 hover:border-ink" />
           </div>
           <a
             href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hola! Estoy interesado en ${p.brand} ${p.name}${variant ? ` (${variant.label})` : ""}.`)}`}

@@ -2,7 +2,8 @@ import Link from "next/link";
 import ProductCard from "./ProductCard";
 import SortSelect from "./SortSelect";
 import { SplitReveal } from "./Motion";
-import { search, summary, type Query } from "@/lib/catalog";
+import { search, summary, facetCounts, type Query } from "@/lib/catalog";
+import { FACETS } from "@/lib/facets";
 import { GROUPS, ALL_CATEGORIES } from "@/lib/taxonomy";
 
 const PER_PAGE = 36;
@@ -14,9 +15,9 @@ const PRICE_BANDS = [
   { label: "Más de $200", min: 200, max: 100000 },
 ];
 
-export type ShopParams = { q?: string; marca?: string; ofertas?: string; orden?: string; min?: string; max?: string; pagina?: string };
+export type ShopParams = { q?: string; marca?: string; ofertas?: string; orden?: string; min?: string; max?: string; pagina?: string } & Record<string, string | undefined>;
 
-export default function ShopView({ cat, params, title, subtitle, basePath }: { cat?: string; params: ShopParams; title: React.ReactNode; subtitle?: string; basePath: string }) {
+export default function ShopView({ cat, params, title, subtitle, basePath, compact = false }: { cat?: string; params: ShopParams; title: React.ReactNode; subtitle?: string; basePath: string; compact?: boolean }) {
   const query: Query = {
     q: params.q,
     cat,
@@ -25,6 +26,7 @@ export default function ShopView({ cat, params, title, subtitle, basePath }: { c
     min: params.min ? Number(params.min) : undefined,
     max: params.max ? Number(params.max) : undefined,
     sort: (params.orden as Query["sort"]) || undefined,
+    facets: Object.fromEntries(FACETS.filter((f) => params[f.key]).map((f) => [f.key, params[f.key]!])),
   };
   const all = search(query);
   const page = Math.max(1, Number(params.pagina ?? 1));
@@ -38,6 +40,8 @@ export default function ShopView({ cat, params, title, subtitle, basePath }: { c
     brandFacet.set(p.brandSlug, b);
   }
   const brands = [...brandFacet.entries()].sort((a, b) => b[1].n - a[1].n).slice(0, 24);
+  const facets = facetCounts(all);
+  const active = FACETS.flatMap((f) => (params[f.key] ? [{ key: f.key, label: f.values.find((v) => v.slug === params[f.key])?.label ?? params[f.key]! }] : []));
 
   const href = (patch: Partial<ShopParams>) => {
     const sp = new URLSearchParams();
@@ -47,30 +51,8 @@ export default function ShopView({ cat, params, title, subtitle, basePath }: { c
     return `${basePath}${s ? `?${s}` : ""}`;
   };
 
-  const group = cat ? GROUPS.find((g) => g.slug === (ALL_CATEGORIES[cat]?.group ?? cat)) : undefined;
-
-  return (
-    <div className="bg-white pb-32 pt-36" data-nav="light">
-      <div className="mx-auto max-w-[1400px] px-6">
-        <SplitReveal as="h1" immediate className="display text-[13vw] md:text-[7vw]" lines={[title]} />
-        {subtitle && <p className="mt-4 max-w-xl text-lg text-smoke">{subtitle}</p>}
-
-        {/* Sub-category pills */}
-        <div className="no-scrollbar -mx-6 mt-10 flex gap-2 overflow-x-auto px-6">
-          {(group ? [{ slug: group.slug, name: `Todo ${group.name}` }, ...group.children] : GROUPS.map((g) => ({ slug: g.slug, name: g.name }))).map((c) => (
-            <Link
-              key={c.slug}
-              href={`/tienda/${c.slug}`}
-              className={`shrink-0 rounded-full px-5 py-2.5 text-[14px] transition ${cat === c.slug ? "bg-ink text-white" : "bg-mist hover:bg-fog"}`}
-            >
-              {c.name}
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-12 grid gap-12 lg:grid-cols-[230px_1fr]">
-          {/* Filters */}
-          <aside className="space-y-9 text-[14px] max-lg:hidden">
+  const filters = (
+    <>
             <div>
               <p className="mb-3 font-semibold">Precio</p>
               <ul className="space-y-2">
@@ -95,6 +77,27 @@ export default function ShopView({ cat, params, title, subtitle, basePath }: { c
                 Solo ofertas
               </Link>
             </div>
+            {facets.map((f) => (
+              <div key={f.key}>
+                <p className="mb-3 font-semibold">{f.label}</p>
+                <ul className="space-y-2">
+                  {f.values.map((v) => {
+                    const on = params[f.key] === v.slug;
+                    return (
+                      <li key={v.slug}>
+                        <Link href={href({ [f.key]: on ? undefined : v.slug })} className={`flex justify-between ${on ? "font-semibold" : "text-smoke hover:text-ink"}`}>
+                          <span>
+                            {on ? "✓ " : ""}
+                            {v.label}
+                          </span>
+                          <span className="text-[12px] opacity-60">{v.n}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
             <div>
               <p className="mb-3 font-semibold">Marcas</p>
               <ul className="space-y-2">
@@ -115,9 +118,48 @@ export default function ShopView({ cat, params, title, subtitle, basePath }: { c
                 ))}
               </ul>
             </div>
-          </aside>
+              </>
+  );
+
+  const group = cat ? GROUPS.find((g) => g.slug === (ALL_CATEGORIES[cat]?.group ?? cat)) : undefined;
+
+  return (
+    <div className={`bg-white pb-32 ${compact ? "pt-4" : "pt-36"}`} data-nav="light">
+      <div className="mx-auto max-w-[1400px] px-6">
+        {compact ? <h2 className="display text-5xl md:text-6xl">{title}</h2> : <SplitReveal as="h1" immediate className="display text-[13vw] md:text-[7vw]" lines={[title]} />}
+        {subtitle && <p className="mt-4 max-w-xl text-lg text-smoke">{subtitle}</p>}
+
+        {/* Sub-category pills */}
+        <div className="no-scrollbar -mx-6 mt-10 flex gap-2 overflow-x-auto px-6">
+          {(group ? [{ slug: group.slug, name: `Todo ${group.name}` }, ...group.children] : GROUPS.map((g) => ({ slug: g.slug, name: g.name }))).map((c) => (
+            <Link
+              key={c.slug}
+              href={`/tienda/${c.slug}${params.marca ? `?marca=${params.marca}` : ""}`}
+              className={`shrink-0 rounded-full px-5 py-2.5 text-[14px] transition ${cat === c.slug ? "bg-ink text-white" : "bg-mist hover:bg-fog"}`}
+            >
+              {c.name}
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-12 grid gap-12 lg:grid-cols-[230px_1fr]">
+          {/* Filters */}
+          <aside className="space-y-9 text-[14px] max-lg:hidden">{filters}</aside>
 
           <div>
+            <details className="mb-6 rounded-2xl bg-mist p-4 text-[14px] lg:hidden">
+              <summary className="cursor-pointer list-none font-semibold">Filtros {active.length > 0 && `(${active.length})`}</summary>
+              <div className="mt-5 space-y-8">{filters}</div>
+            </details>
+            {active.length > 0 && (
+              <div className="mb-6 flex flex-wrap gap-2">
+                {active.map((a) => (
+                  <Link key={a.key} href={href({ [a.key]: undefined })} className="rounded-full bg-ink px-4 py-1.5 text-[13px] text-white">
+                    {a.label} ×
+                  </Link>
+                ))}
+              </div>
+            )}
             <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-black/5 pb-5">
               <p className="text-[14px] text-smoke">
                 {all.length.toLocaleString("es-BO")} productos{params.q ? ` para “${params.q}”` : ""}

@@ -9,7 +9,7 @@ import Tilt from "@/components/Tilt";
 import { SplitReveal, Reveal, Parallax } from "@/components/Motion";
 import { homeSection, getProduct, getBrands, search, summary, pick } from "@/lib/catalog";
 import { GROUPS } from "@/lib/taxonomy";
-import { INSTAGRAM_POSTS, CONTACT, STORES } from "@/lib/info";
+import { INSTAGRAM_CODES, CONTACT, STORES } from "@/lib/info";
 
 const LOGOS = [
   ["chanel", "Chanel-1.jpg"],
@@ -282,28 +282,18 @@ export default function Home() {
             Seguir · {CONTACT.followers}
           </a>
         </div>
-        <div className="marquee overflow-hidden">
-          <div className="marquee-track gap-5 px-3" style={{ ["--marquee-speed" as string]: "70s" }}>
-            {[...INSTAGRAM_POSTS, ...INSTAGRAM_POSTS].map((p, i) => (
-              <a
-                key={i}
-                href={p.url}
-                target="_blank"
-                rel="noreferrer"
-                className="flex h-[260px] w-[300px] shrink-0 flex-col justify-between rounded-[24px] border border-white/10 bg-white/[0.04] p-6 transition hover:bg-white/[0.09]"
-              >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="text-white/60">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-                </svg>
-                <p className="line-clamp-5 text-[15px] leading-relaxed text-white/85">{p.text}</p>
-                <p className="text-[12px] text-white/40">
-                  {new Date(p.date).toLocaleDateString("es-BO", { day: "numeric", month: "long" })}
-                </p>
-              </a>
-            ))}
-          </div>
+        <div className="no-scrollbar flex snap-x gap-5 overflow-x-auto px-6 pb-4 lg:px-[max(1.5rem,calc((100vw-1300px)/2))]" data-lenis-prevent-horizontal>
+          {INSTAGRAM_CODES.map((code) => (
+            <div key={code} className="h-[560px] w-[340px] shrink-0 snap-start overflow-hidden rounded-[24px] bg-white">
+              <iframe
+                src={`https://www.instagram.com/p/${code}/embed/`}
+                title={`Publicación de Instagram ${code}`}
+                loading="lazy"
+                className="h-[640px] w-full border-0"
+                scrolling="no"
+              />
+            </div>
+          ))}
         </div>
       </section>
     </>

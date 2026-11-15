@@ -49,7 +49,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={root} data-nav="dark" className="relative h-[100svh] overflow-hidden bg-ink text-white">
+    // Stable wrapper: GSAP `pin` moves the section into a pin-spacer, so React must own a parent it can remove.
+    <div>
+      <section ref={root} data-nav="dark" className="relative h-[100svh] overflow-hidden bg-ink text-white">
       <div className="hero-title absolute inset-x-0 top-[13vh] z-10 px-5 text-center md:top-[11vh]">
         <p className="hero-eyebrow eyebrow text-white/60">Cosmet · Desde 1975</p>
         <h1 className="display mt-4 text-[12vw] md:text-[6.2vw]">
@@ -96,5 +98,6 @@ export default function Hero() {
         SCROLL
       </div>
     </section>
+    </div>
   );
 }

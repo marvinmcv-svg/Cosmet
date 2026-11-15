@@ -39,7 +39,9 @@ export default function HorizontalRail({ eyebrow, title, items, href }: { eyebro
   }, []);
 
   return (
-    <section ref={root} className="relative overflow-hidden bg-white py-20 lg:flex lg:h-[100svh] lg:flex-col lg:justify-center lg:py-0" data-nav="light">
+    // Stable wrapper: GSAP `pin` moves the section into a pin-spacer, so React must own a parent it can remove.
+    <div>
+      <section ref={root} className="relative overflow-hidden bg-white py-20 lg:flex lg:h-[100svh] lg:flex-col lg:justify-center lg:py-0" data-nav="light">
       <div className="mx-auto mb-10 flex w-full max-w-[1400px] items-end justify-between px-6 lg:px-12">
         <div>
           <p className="eyebrow text-smoke">{eyebrow}</p>
@@ -60,5 +62,6 @@ export default function HorizontalRail({ eyebrow, title, items, href }: { eyebro
         <div ref={bar} className="h-full origin-left scale-x-0 bg-ink" />
       </div>
     </section>
+    </div>
   );
 }

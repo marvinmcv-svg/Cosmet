@@ -32,9 +32,24 @@ export default function ProductDetail({ p, chips = [] }: { p: Product; chips?: {
   useEffect(() => {
     const el = buyRef.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setShowBar(!e.isIntersecting && e.boundingClientRect.top < 0));
-    io.observe(el);
-    return () => io.disconnect();
+    // Position check rather than IntersectionObserver: IO only fires on intersection *changes*, so a jump
+    // from below the fold to past the button (fling, End key, scroll restoration) would never show the bar.
+    let raf = 0;
+    const check = () => {
+      raf = 0;
+      setShowBar(el.getBoundingClientRect().bottom < 0);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -64,7 +79,7 @@ export default function ProductDetail({ p, chips = [] }: { p: Product; chips?: {
     <div ref={root}>
       <div className="mx-auto grid max-w-[1400px] gap-10 px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
         {/* Gallery */}
-        <div className="lg:sticky lg:top-24 lg:self-start">
+        <div className="min-w-0 lg:sticky lg:top-24 lg:self-start">
           <div className="pd-stage relative aspect-square overflow-hidden rounded-[32px] bg-mist [perspective:1200px]" onPointerMove={onMove} onPointerLeave={onLeave}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img ref={imgRef} key={images[active]} src={images[active]} alt={`${p.brand} ${p.name}`} className="img-product h-full w-full object-contain p-[8%] will-change-transform" />
@@ -88,7 +103,7 @@ export default function ProductDetail({ p, chips = [] }: { p: Product; chips?: {
         </div>
 
         {/* Info */}
-        <div className="pb-10">
+        <div className="min-w-0 pb-10">
           <Link href={`/marcas/${p.brandSlug}`} className="pd-in eyebrow inline-block text-smoke hover:text-ink">
             {p.brand}
           </Link>

@@ -1,4 +1,8 @@
 import json, re, sys, unicodedata, os
+import html as _html
+
+# Some source text is double-encoded (&lt;p&gt;…), which survives the scrapers as literal tags.
+def plain(s): return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',_html.unescape(s or ''))).strip()
 RAW=sys.argv[1]; OUT=sys.argv[2]
 L=json.load(open(f'{RAW}/listings2.json'))
 D=json.load(open(f'{RAW}/details.json')) if os.path.exists(f'{RAW}/details.json') else {}
@@ -49,7 +53,7 @@ for i,p in enumerate(L['all']):
         if firsts: gallery=firsts[0][:8]
     attrs={k.strip():v for k,v in d.get('attrs',{}).items() if k.strip() not in('Created At','3D Thumbnail','Marca') and v}
     item={'id':p['id'],'slug':slug,'name':name,'brand':brand,'brandSlug':slugify(brand),'img':p['img'],'price':p['price'],
-          'short':p.get('short') or d.get('short',''),'cats':cs+groups,'sku':p.get('sku',''),'gallery':gallery,'tags':tags,'attrs':attrs,'source':p['url']}
+          'short':plain(p.get('short') or d.get('short','')),'cats':cs+groups,'sku':p.get('sku',''),'gallery':gallery,'tags':tags,'attrs':attrs,'source':p['url']}
     if p.get('old') and p['old']>p['price']: item['old']=p['old']
     if is_new: item['isNew']=True
     if d.get('desc'): item['desc']=d['desc'][:4000]

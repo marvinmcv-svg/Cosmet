@@ -199,7 +199,7 @@ export default function Header() {
                   </span>
                 )}
               </button>
-              <button className="lg:hidden p-1" aria-label="Menú" onClick={() => setMobileOpen((v) => !v)}>
+              <button className="lg:hidden p-1" aria-label="Menú" aria-expanded={mobileOpen} aria-controls="mobile-menu" onClick={() => setMobileOpen((v) => !v)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   {mobileOpen ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 9h16M4 15h16" />}
                 </svg>
@@ -241,7 +241,10 @@ export default function Header() {
       />
 
       {/* Mobile menu */}
-      <div
+      <nav
+        id="mobile-menu"
+        aria-label="Menú principal"
+        inert={!mobileOpen}
         className={`fixed inset-0 z-40 bg-white pt-24 px-8 transition-[opacity,transform] duration-500 lg:hidden ${
           mobileOpen ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-4"
         }`}
@@ -255,7 +258,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
 
       {/* Search overlay */}
       <div
